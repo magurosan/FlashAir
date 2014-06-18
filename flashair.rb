@@ -16,12 +16,12 @@ APPNAME = "flashair"
 class Flashair
   def initialize(mastercode=MASTERCODE,appname=APPNAME,updir=nil)
     osn = RbConfig::CONFIG["target_os"].downcase
-    @base_url = APPNAME + (osn =~ /darwin/ ? ".local" : "")
     @mastercode = mastercode
     @appname = appname
     @updir = updir
     # check the Flashair
-    raise("Flashair is down or unreachable.") unless Net::Ping::External.new(@base_url).ping?
+    @base_url = @appname + (osn =~ /darwin/ ? ".local" : "")
+    raise("Your FlashAir is down or unreachable.") unless Net::Ping::External.new(@base_url).ping?
     
     @base_url = "http://" + @base_url
   end
