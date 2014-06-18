@@ -6,8 +6,11 @@ I just write methods for upload.cgi, the part of API.
 ***
 ##Installation
 execute:
-  　　$ bundle install
-  
+
+```
+$ bundle install
+```
+
 ##Usage
 see sample.rb
 
